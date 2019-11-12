@@ -7,8 +7,7 @@ import {Book} from '../../Book';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  @Input() Book: string;
-  @Input() Price: number;
+  @Input() book: Book;
 
   constructor() { }
 
