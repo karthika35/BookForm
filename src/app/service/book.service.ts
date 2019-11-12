@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {  HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
 import {Book} from '../Book';
 
 @Injectable({
@@ -9,13 +8,14 @@ import {Book} from '../Book';
 })
 export class BookService {
 
-  endpoint = 'tranquil-shore-30082.herokuapp.com/';
+  endpoint = 'http://tranquil-shore-30082.herokuapp.com/';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json'
     })
   };
-  constructor(private http: HttpClient, public book: Book) { }
+  booklist: Book[];
+  constructor(private http: HttpClient) { }
 
   // addProduct(book): Observable<any> {
   //   console.log(book);
@@ -24,10 +24,11 @@ export class BookService {
   //     catchError(this.handleError<any>('addProduct'))
   //   );
   // }
-  public createBook(book: Book) {
-    return this.http.post(`${this.endpoint}/api/book`, book);
-  }
-  public getBook(book: Book) {
-    return this.http.get(`${this.endpoint}/api/book`, book);
+  // public createBook() {
+  //   return this.http.post(`${this.endpoint}/api/book`, this.booklist);
+  // }
+  getBook() {
+    return this.http.get<Book[]>(`${this.endpoint}api/book`);
+
   }
 }
