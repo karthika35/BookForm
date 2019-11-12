@@ -21,14 +21,14 @@ export class BookService {
   //     catchError(this.handleError<any>('addProduct'))
   //   );
   // }
-  public postBook() {
-    const book = new Book();
+  public postBook(book: any): Observable<Book> {
 
-    this.http.post<any>(`${this.endpoint}api/book`, book).subscribe(
-      (res) => console.log(res),
-      (err) => console.log(err)
-    );
+    return this.http.post<any>(`${this.endpoint}api/book`, book)
+      .pipe(
+        map(res => res.payload)
+      );
   }
+
   getBook(): Observable<Book[]> {
     return this.http.get<any>(`${this.endpoint}api/book`)
       .pipe(

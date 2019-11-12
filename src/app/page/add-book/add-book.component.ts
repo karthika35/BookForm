@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BookService} from '../../service/book.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {Book} from '../../model';
 
 @Component({
@@ -10,13 +10,12 @@ import {Book} from '../../model';
 })
 export class AddBookComponent implements OnInit {
   book: Book[];
-  bookForm = new FormGroup ({
+  bookForm = new FormGroup({
     bookName: new FormControl(),
     price: new FormControl(),
-    authorName: new FormControl(),
-
-
+    authorId: new FormControl(),
   });
+
   constructor(public bookservice: BookService) {
   }
 
@@ -24,7 +23,16 @@ export class AddBookComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.bookservice.postBook(this.bookForm.value);
+    const book: any = {
+      name: this.bookForm.get('bookName').value,
+      price: this.bookForm.get('bookName').value,
+      authorId: this.bookForm.get('authorId').value,
+
+    };
+    // console.log(book);
+    this.bookservice.postBook(book).subscribe(res => {
+      console.log(res);
+    });
   }
 
 }
