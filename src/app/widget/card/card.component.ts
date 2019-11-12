@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Book} from '../../Book';
+import {Author} from '../../Author';
 
 @Component({
   selector: 'app-card',
@@ -9,6 +10,7 @@ import {Book} from '../../Book';
 export class CardComponent implements OnInit {
   @Input() Book: string;
   @Input() Price: number;
+  @Input() Author: string;
 
   constructor() { }
 

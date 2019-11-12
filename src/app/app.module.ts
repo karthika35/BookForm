@@ -12,6 +12,14 @@ import { FormsModule } from '@angular/forms';
 import { BookService} from './service/book.service';
 import { HomepageComponent } from './page/homepage/homepage.component';
 import {CardComponent} from './widget/card/card.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AddBookComponent } from './page/add-book/add-book.component';
+
+const appRoutes: Routes = [
+  { path: 'home', component: HomepageComponent },
+  { path: 'addbook',      component: AddBookComponent },
+
+];
 
 @NgModule({
   declarations: [
@@ -19,7 +27,8 @@ import {CardComponent} from './widget/card/card.component';
     PageComponent,
     NavbarComponent,
     HomepageComponent,
-    CardComponent
+    CardComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +37,11 @@ import {CardComponent} from './widget/card/card.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     FormsModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
+    // other imports here,
   ],
   providers: [BookService],
 

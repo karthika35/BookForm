@@ -1,3 +1,4 @@
+<h6>hi</h6>
 <div *ngFor="let book of booklist">
-  <app-card [Book]="book.name" [Price]="book.price" ></app-card>
+  <app-card [Book]="book.name" [Price]="book.price" [Author]="book.author.name" ></app-card>
 </div>
