@@ -9,7 +9,7 @@ import {Book} from '../Book';
 })
 export class BookService {
 
-  endpoint = 'https://tranquil-shore-30082.herokuapp.com/v2/api-docs';
+  endpoint = 'tranquil-shore-30082.herokuapp.com/';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json'
@@ -26,5 +26,8 @@ export class BookService {
   // }
   public createBook(book: Book) {
     return this.http.post(`${this.endpoint}/api/book`, book);
+  }
+  public getBook(book: Book) {
+    return this.http.get(`${this.endpoint}/api/book`, book);
   }
 }

@@ -11,13 +11,17 @@ import { NavbarComponent } from './page/navbar/navbar.component';
 import { ContentComponent } from './page/content/content.component';
 import { FormsModule } from '@angular/forms';
 import { BookService} from './service/book.service';
+import { CardComponent } from './page/content/card/card.component';
+import { FormComponent } from './page/content/form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageComponent,
     NavbarComponent,
-    ContentComponent
+    ContentComponent,
+    CardComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
