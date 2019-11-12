@@ -1,1 +1,10 @@
-<form></form>
+<form [formGroup]="bookservice.bookForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>Book Name:</label>
+    <input class="form-control" formControlName="bookName">
+    <label>price:</label>
+    <input class="form-control" formControlName="price">
+    <label>Author Name:</label>
+    <input class="form-control" formControlName="authorName">
+  </div>
+</form>
