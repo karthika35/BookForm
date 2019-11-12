@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
-import {Book} from '../Book';
 import {map} from 'rxjs/operators';
+import {Book} from '../model';
 
 @Injectable({
   providedIn: 'root'

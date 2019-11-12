@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Book} from '../../Book';
 import {BookService} from '../../service/book.service';
 import { FormControl, FormGroup } from '@angular/forms';
-
+import {Book} from '../../model';
 
 @Component({
   selector: 'app-add-book',
@@ -25,7 +24,7 @@ export class AddBookComponent implements OnInit {
   }
 
   onSubmit() {
-    this.bookservice.postBook(this.bookForm.value);
+    // this.bookservice.postBook(this.bookForm.value);
   }
 
 }
