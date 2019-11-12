@@ -15,6 +15,7 @@ import { HomepageComponent } from './page/homepage/homepage.component';
 import {CardComponent} from './widget/card/card.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AddBookComponent } from './page/add-book/add-book.component';
+import { BookDetailComponent } from './page/book-detail/book-detail.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomepageComponent },
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     HomepageComponent,
     CardComponent,
-    AddBookComponent
+    AddBookComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule,

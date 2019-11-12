@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {BookService} from '../../service/book.service';
 import {Book} from '../../model';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-homepage',
@@ -10,7 +11,7 @@ import {Book} from '../../model';
 export class HomepageComponent implements OnInit {
   booklist: Book[] = [];
 
-  constructor(public bookservice: BookService) {
+  constructor(public bookservice: BookService, private router: Router) {
   }
 
   ngOnInit() {
@@ -21,4 +22,7 @@ export class HomepageComponent implements OnInit {
     });
   }
 
+  bookOnClick(id: number) {
+    this.router.navigate(['/book'], {queryParams: {id: id}});
+  }
 }
